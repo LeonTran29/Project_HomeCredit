@@ -1,0 +1,11 @@
+*.csv
+!exports/*.csv
+
+*.zip
+data/
+*.pbix
+*.json
+.env
+.config/gcloud/
+.DS_Store
+Thumb.db
