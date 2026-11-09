@@ -7,8 +7,8 @@ Finding template: Numbers -> Reading -> So what -> Limits.
 
 ## DQ-001: Cột cờ (flag) lẫn kiểu BOOL và INT64 trong application_train
 - **Numbers**: 3 cột BOOL (FLAG_OWN_CAR, FLAG_OWN_REALTY, EMERGENCYSTATE_MODE); các cột cờ còn lại (FLAG_MOBIL, FLAG_EMP_PHONE, FLAG_WORK_PHONE, FLAG_CONT_MOBILE, FLAG_PHONE, FLAG_EMAIL, FLAG_DOCUMENT_2..21, REG_*/LIVE_*_NOT_*) là INT64 0/1. Tổng 307.511 dòng.
-- **Reading**: Cùng bản chất có/không nhưng lưu hai kiểu khác nhau. Nguồn CSV là chữ (Y/N, Yes/No) hoặc 0/1; BigQuery Auto detect tự chọn kiểu theo từng cột. Chưa phải lỗi giá trị, mới chỉ là không nhất quán kiểu. Chưa kiểm tỷ lệ NULL của EMERGENCYSTATE_MODE.
-- **So what / Action**: AVG(cờ) ra thẳng tỷ lệ với INT64 nhưng BOOL phải ép kiểu trước; kiểu lẫn lộn dễ gây lỗi khi viết SQL hàng loạt và khi đưa vào Power BI. Chuẩn hoá toàn bộ về INT64 0/1, giữ NULL là NULL.
+- **Reading**: Cùng bản chất Yes/No nhưng lưu hai kiểu khác nhau. Nguồn CSV là chữ (Y/N, Yes/No) hoặc 0/1; BigQuery Auto detect tự chọn kiểu theo từng cột. Chưa phải lỗi giá trị, mới chỉ là không nhất quán kiểu. Chưa kiểm tỷ lệ NULL của EMERGENCYSTATE_MODE.
+- **So what / Action**: AVG(Flag) ra thẳng tỷ lệ với INT64 nhưng BOOL phải ép kiểu trước; kiểu lẫn lộn dễ gây lỗi khi viết SQL hàng loạt và khi đưa vào Power BI. Chuẩn hoá toàn bộ về INT64 0/1, giữ NULL là NULL.
 - **Fix location**: stg (homecredit_stg.application_train), dùng CAST. Raw giữ nguyên.
 - **Status**: OPEN
 
