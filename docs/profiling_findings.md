@@ -48,15 +48,8 @@ Every finding follows the fixed shape:
 
 | Table | Tier | Treatment | Status |
 |---|---|---|---|
-| `orders` | A | Full 8-point | ☑ |
-| `order_items` | A | Full 8-point | ☑ |
-| `order_reviews` | A | Full 8-point | ☑ |
-| `customers` | B | PK + join-key nulls (pts 2, 3) | ☑ |
-| `sellers` | B | PK + join-key nulls (pts 2, 3) | ☑ |
-| `products` | B | PK + join-key nulls (pts 2, 3) | ☑ |
-| `geolocation` | C | Coverage only (pt 7) | ☑ |
-| `product_category_name` | C | Coverage only (pt 7) | ☑ |
-| `order_payments` | — | **Deferred** (payment flow = future project) | ⏸ |
+| `application_train` | A | Full 8-point | ☑ |
+| `???` | — | **Deferred** (payment flow = future project) | ⏸ |
 
 > Mark ☑ when the section below is filled and committed.
 
@@ -68,7 +61,7 @@ Rows = tables · Columns = the 8 points · **☐** applicable, not yet done · *
 
 | Table | Tier | 1 Vol | 2 PK | 3 Null | 4 Card | 5 Range | 6 Domain | 7 RefInt | 8 Rule |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| `orders` | A | ☑ | ☑ | ☑ | ☑ | ☑ | ☑ | ☑ | ☑ |
+| `application_train` | A | ☑ | ☑ | ☐ | ☐ | ☐ | ☐ | ☐ | ☑ |
 
 **Why the blanks:** 
 
