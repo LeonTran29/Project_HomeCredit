@@ -22,3 +22,10 @@ Finding template: Numbers -> Reading -> So what -> Limits.
 - **Status**: OPEN
 
 ---
+
+## DQ-003: DAYS_EMPLOYED có giá trị dương bất thường (mã 365.243)
+- **Numbers**: 55.374/307.511 dòng (18,0%) có DAYS_EMPLOYED > 0; max = 365.243 (~1.000 năm); min = -17.912. Số dòng dương khác 365.243: chờ kết quả query (n_positive_other).
+- **Reading**: Cột là số ngày âm tính ngược từ ngày nộp đơn; giá trị dương/365.243 không phải số ngày thật. Nhiều khả năng là mã đặc biệt cho "không có thông tin việc làm". Chưa xác nhận bằng tài liệu hay NAME_INCOME_TYPE.
+- **So what / Action**: Ở stg, thay 365.243 bằng NULL và thêm cờ is_employed_unknown. Giữ nguyên dòng. Báo tỷ lệ vỡ nợ của nhóm này riêng, kèm mẫu số 55.374, so với base rate 8,07%.
+- **Fix location**: stg (homecredit_stg.application_train).
+- **Status**: OPEN
